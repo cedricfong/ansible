@@ -1,12 +1,19 @@
 - name: Hello World With Sleep Sample
   hosts: all
   tasks:
+    - name: Check hostname
+      command: hostname
+      register: out
+   
+    - debug:
+        msg: "{{ out.stdout }}"
+
     - name: Start time
       command: date
       register: out
    
     - debug:
-        msg: {{out.stdout}}
+        msg: "{{ out.stdout }}"
 
     - pause:
       minutes: 1
@@ -20,6 +27,6 @@
       register: out
    
     - debug:
-        msg: {{out.stdout}}
+        msg: "{{ out.stdout }}"
 
 
