@@ -15,8 +15,9 @@
     - debug:
         msg: "{{ out.stdout }}"
 
-    - pause:
-      minutes: 1
+    - name: Sleep for 1 minute
+      wait_for:
+        timeout: 60
 
     - name: Hello Message
       debug:
