@@ -1,0 +1,25 @@
+- name: Hello World With Sleep Sample
+  hosts: all
+  tasks:
+    - name: Start time
+      command: date
+      register: out
+   
+    - debug:
+        msg: {{out.stdout}}
+
+    - pause:
+      minutes: 1
+
+    - name: Hello Message
+      debug:
+        msg: "Hello World!"
+
+    - name: End time
+      command: date
+      register: out
+   
+    - debug:
+        msg: {{out.stdout}}
+
+
